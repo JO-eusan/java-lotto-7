@@ -42,5 +42,4 @@ public enum Rank {
 		}
 		return NOTHING;
 	}
-
 }
