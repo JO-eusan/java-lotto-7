@@ -4,6 +4,7 @@ import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import lotto.model.constant.ErrorMessage;
+import lotto.model.constant.Value;
 
 public class LottoGenerator {
 	private int money;
@@ -16,7 +17,7 @@ public class LottoGenerator {
 	}
 
 	public int getCounter() {
-		return money / 1000;
+		return money / Value.MONEY_DIVISION;
 	}
 
 	public Lotto generateLotto() {
@@ -24,7 +25,7 @@ public class LottoGenerator {
 	}
 
 	private List<Integer> createNumbers() {
-		return Randoms.pickUniqueNumbersInRange(1, 45, 6);
+		return Randoms.pickUniqueNumbersInRange(Value.LOTTO_MIN, Value.LOTTO_MAX, Value.LOTTO_SIZE);
 	}
 
 	private void validateNumber(String money) {
@@ -38,7 +39,7 @@ public class LottoGenerator {
 	private void validateDivisible(String money) {
 		int buyingMoney = Integer.parseInt(money);
 
-		if (buyingMoney % 1000 != 0) {
+		if (buyingMoney % Value.MONEY_DIVISION != 0) {
 			throw new IllegalArgumentException(ErrorMessage.NOT_DIVISIBLE_ERROR_MESSAGE);
 		}
 	}

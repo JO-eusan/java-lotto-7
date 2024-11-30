@@ -1,8 +1,8 @@
 package lotto.controller;
 
 import lotto.model.Buyer;
-import lotto.model.Lotto;
 import lotto.model.LottoGenerator;
+import lotto.model.WinningLotto;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -11,6 +11,7 @@ public class LottoController {
 	private OutputView outputView;
 	private LottoGenerator lottoGenerator;
 	private Buyer buyer;
+	private WinningLotto winningLotto;
 
 	public LottoController() {
 		this.inputView = new InputView();
@@ -21,7 +22,7 @@ public class LottoController {
 		enterMoney();
 		purchaseLotto();
 		showLotto();
-
+		enterWinningLotto();
 
 	}
 
@@ -44,6 +45,17 @@ public class LottoController {
 
 	private void showLotto() {
 		outputView.printLotto(lottoGenerator.getCounter(), buyer);
+	}
+
+	private void enterWinningLotto() {
+		String winningNumbers = inputView.readWinningNumbers();
+		String bonusNumber = inputView.readBonusNumber();
+		try {
+			this.winningLotto = new WinningLotto(winningNumbers, bonusNumber);
+		} catch (IllegalArgumentException e) {
+			outputView.printErrorMessage(e);
+			enterWinningLotto();
+		}
 	}
 
 }
