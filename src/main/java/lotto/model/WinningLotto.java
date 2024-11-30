@@ -22,6 +22,14 @@ public class WinningLotto {
 		this.bonusNumber = Integer.parseInt(bonusNumber);
 	}
 
+	public List<Integer> getWinningNumbers() {
+		return winningNumbers;
+	}
+
+	public int getBonusNumber() {
+		return bonusNumber;
+	}
+
 	private List<Integer> createWinningNumbers(String[] numbers) {
 		List<Integer> tmp = new ArrayList<>();
 		for(String number : numbers) {

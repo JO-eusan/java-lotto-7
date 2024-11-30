@@ -15,6 +15,10 @@ public class Lotto {
 		this.numbers = numbers;
 	}
 
+	public List<Integer> getNumbers() {
+		return numbers;
+	}
+
 	private void validate(List<Integer> numbers) {
 		if (numbers.size() != Value.LOTTO_SIZE) {
 			throw new IllegalArgumentException(ErrorMessage.SIZE_ERROR_MESSAGE);

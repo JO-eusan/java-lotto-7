@@ -16,6 +16,10 @@ public class LottoGenerator {
 		this.money = Integer.parseInt(money);
 	}
 
+	public int getMoney() {
+		return money;
+	}
+
 	public int getCounter() {
 		return money / Value.MONEY_DIVISION;
 	}

@@ -23,7 +23,8 @@ public class LottoController {
 		purchaseLotto();
 		showLotto();
 		enterWinningLotto();
-
+		ranking();
+		showStatics();
 	}
 
 	private void enterMoney() {
@@ -58,4 +59,16 @@ public class LottoController {
 		}
 	}
 
+	private void ranking() {
+		buyer.calculateRank(winningLotto);
+		outputView.printStaticsStart();
+		outputView.printRank(buyer);
+	}
+
+	private void showStatics() {
+		long profit = buyer.calculateProfit();
+		long money = lottoGenerator.getMoney();
+		double rate = (double)profit / money * 100;
+		outputView.printStatics(rate);
+	}
 }
