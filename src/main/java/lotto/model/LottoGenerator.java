@@ -1,5 +1,8 @@
 package lotto.model;
 
+import java.util.List;
+
+import camp.nextstep.edu.missionutils.Randoms;
 import lotto.model.constant.ErrorMessage;
 
 public class LottoGenerator {
@@ -12,8 +15,16 @@ public class LottoGenerator {
 		this.money = Integer.parseInt(money);
 	}
 
-	public int calculateCounter() {
-		return this.money / 1000;
+	public int getCounter() {
+		return money / 1000;
+	}
+
+	public Lotto generateLotto() {
+		return new Lotto(createNumbers());
+	}
+
+	private List<Integer> createNumbers() {
+		return Randoms.pickUniqueNumbersInRange(1, 45, 6);
 	}
 
 	private void validateNumber(String money) {
