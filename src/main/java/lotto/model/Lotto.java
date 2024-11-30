@@ -11,7 +11,8 @@ public class Lotto {
 	private final List<Integer> numbers;
 
 	public Lotto(List<Integer> numbers) {
-		validate(numbers);
+		validateSize(numbers);
+		validateDuplicate(numbers);
 		this.numbers = numbers;
 	}
 
@@ -19,9 +20,17 @@ public class Lotto {
 		return numbers;
 	}
 
-	private void validate(List<Integer> numbers) {
+	private void validateSize(List<Integer> numbers) {
 		if (numbers.size() != Value.LOTTO_SIZE) {
 			throw new IllegalArgumentException(ErrorMessage.SIZE_ERROR_MESSAGE);
+		}
+	}
+
+	private void validateDuplicate(List<Integer> numbers) {
+		for(int i=0; i<numbers.size(); i++) {
+			if(numbers.subList(0,i).contains(numbers.get(i))) {
+				throw new IllegalArgumentException(ErrorMessage.DUPLICATE_ERROR_MESSAGE);
+			}
 		}
 	}
 
