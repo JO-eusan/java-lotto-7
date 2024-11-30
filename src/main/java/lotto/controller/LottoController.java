@@ -39,7 +39,7 @@ public class LottoController {
 
 	private void purchaseLotto() {
 		this.buyer = new Buyer();
-		for(int i=0; i< lottoGenerator.getCounter(); i++) {
+		for (int i = 0; i < lottoGenerator.getCounter(); i++) {
 			buyer.addLotto(lottoGenerator.generateLotto());
 		}
 	}

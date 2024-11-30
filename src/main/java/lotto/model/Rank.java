@@ -26,8 +26,8 @@ public enum Rank {
 		int bonusNumber = winningLotto.getBonusNumber();
 
 		int counter = 0;
-		for(int num : myNumbers) {
-			if(winningNumbers.contains(num)) {
+		for (int num : myNumbers) {
+			if (winningNumbers.contains(num)) {
 				counter++;
 			}
 		}
@@ -35,8 +35,8 @@ public enum Rank {
 	}
 
 	private static Rank getRank(int counter, boolean bonusCounter) {
-		for(Rank rank : values()) {
-			if(rank.correctCounter == counter && rank.bonusCounter == bonusCounter) {
+		for (Rank rank : values()) {
+			if (rank.correctCounter == counter && rank.bonusCounter == bonusCounter) {
 				return rank;
 			}
 		}

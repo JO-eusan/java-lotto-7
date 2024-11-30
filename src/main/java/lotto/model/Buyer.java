@@ -12,7 +12,7 @@ public class Buyer {
 		this.lottoStore = new ArrayList<>();
 		this.rankResult = new HashMap<>();
 
-		for(Rank rank : Rank.values()) {
+		for (Rank rank : Rank.values()) {
 			rankResult.put(rank, 0);
 		}
 	}
@@ -30,7 +30,7 @@ public class Buyer {
 	}
 
 	public void calculateRank(WinningLotto winningLotto) {
-		for(Lotto lotto : lottoStore) {
+		for (Lotto lotto : lottoStore) {
 			Rank rank = Rank.checkRank(lotto, winningLotto);
 			rankResult.put(rank, rankResult.get(rank) + 1);
 		}
@@ -38,7 +38,7 @@ public class Buyer {
 
 	public long calculateProfit() {
 		long total = 0;
-		for(Rank rank : Rank.values()) {
+		for (Rank rank : Rank.values()) {
 			total += (rankResult.get(rank) * rank.winningMoney);
 		}
 		return total;

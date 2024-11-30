@@ -32,20 +32,20 @@ public class WinningLotto {
 
 	private List<Integer> createWinningNumbers(String[] numbers) {
 		List<Integer> tmp = new ArrayList<>();
-		for(String number : numbers) {
+		for (String number : numbers) {
 			tmp.add(Integer.parseInt(number));
 		}
 		return tmp;
 	}
 
 	private void validateSize(String[] numbers) {
-		if(numbers.length != Value.LOTTO_SIZE) {
+		if (numbers.length != Value.LOTTO_SIZE) {
 			throw new IllegalArgumentException(ErrorMessage.SIZE_ERROR_MESSAGE);
 		}
 	}
 
 	private void validateNumber(String[] numbers) {
-		for(String number : numbers) {
+		for (String number : numbers) {
 			try {
 				Integer.parseInt(number);
 			} catch (NumberFormatException e) {
@@ -56,8 +56,8 @@ public class WinningLotto {
 
 	private void validateDuplicate(String[] numbers) {
 		List<Integer> tmp = new ArrayList<>();
-		for(String number : numbers) {
-			if(tmp.contains(Integer.parseInt(number))) {
+		for (String number : numbers) {
+			if (tmp.contains(Integer.parseInt(number))) {
 				throw new IllegalArgumentException(ErrorMessage.DUPLICATE_ERROR_MESSAGE);
 			}
 			tmp.add(Integer.parseInt(number));
@@ -73,7 +73,7 @@ public class WinningLotto {
 	}
 
 	private void validateDuplicate(String number) {
-		if(winningNumbers.contains(Integer.parseInt(number))) {
+		if (winningNumbers.contains(Integer.parseInt(number))) {
 			throw new IllegalArgumentException(ErrorMessage.DUPLICATE_ERROR_MESSAGE);
 		}
 	}

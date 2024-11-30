@@ -27,8 +27,8 @@ public class Lotto {
 	}
 
 	private void validateDuplicate(List<Integer> numbers) {
-		for(int i=0; i<numbers.size(); i++) {
-			if(numbers.subList(0,i).contains(numbers.get(i))) {
+		for (int i = 0; i < numbers.size(); i++) {
+			if (numbers.subList(0, i).contains(numbers.get(i))) {
 				throw new IllegalArgumentException(ErrorMessage.DUPLICATE_ERROR_MESSAGE);
 			}
 		}
